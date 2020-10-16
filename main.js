@@ -16,10 +16,11 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () => {
-    console.log('PriviteforNoobs is now online!')
+    console.log('TestBot_234 is online!')
 });
 
-if(!Message.content.startsWith(prefix) || Message.author.bot) return;
+client.on('message', Message =>{
+    if(!Message.content.startsWith(prefix) || Message.author.bot) return;
 
     const args = Message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -38,8 +39,7 @@ if(!Message.content.startsWith(prefix) || Message.author.bot) return;
         client.commands.get('hi').execute(Message, args);
     }else if (command == 'yt'){
         client.commands.get('yt').execute(Message, args);
-    }else if (command == 'giveaway'){
-        client.commands.get('giveaway').execute(Message, args);
-};
+    }
+});
 
 client.login(process.env.TOKEN);
