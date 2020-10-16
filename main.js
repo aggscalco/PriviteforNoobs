@@ -40,7 +40,7 @@ client.on('message', Message =>{
     }else if (command == 'yt'){
         client.commands.get('yt').execute(Message, args);
     }else if (Message.content === `${prefix}online`) {
-        Message.channel.send(`Total Members: ${Message.guild.memverCount}`);
+        Message.channel.send(`Total Members: ${Message.guild.member}`);
     }
 });
 
