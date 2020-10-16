@@ -4,7 +4,10 @@ module.exports = {
     execute(Message, args){
         const embed = new Discord.MessageEmbed()
         .setColor('#2aa198')
-        Message.channel.send('-giveaway its beta, -yt or -youtube is for the channel');
+        .setTitle('COMMANDS')
+        .setDescription('-name,-yt or -youtube,-hi,-freerank,-giveaway')
+        .setFooter('All Commands')
+        Message.channel.send(embed);
    }
 
 
