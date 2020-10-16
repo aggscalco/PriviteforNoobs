@@ -1,10 +1,3 @@
 {
-    "prefex": "!",
-    "bot_age" : 1,
-    "words_array" : ["Hi!", "Bye", "this is array"],
-    "bot_info" : {
-        "name" : "Privite For Noobs",
-        "version" : 1.0
-
-    }
+    "prefex": ">"
 }
