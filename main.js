@@ -20,27 +20,8 @@ client.once('ready', () => {
 });
 
 client.on('message', Message =>{
-    if(!Message.content.startsWith(prefix) || Message.author.bot) return;
-
-    const args = Message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-
-    if(command === 'ping'){
-        client.commands.get('ping').execute(Message, args);
-    } else if (command == 'name'){
-        client.commands.get('name').execute(Message, args);
-    }else if (command == 'help'){
-        client.commands.get('help').execute(Message, args);
-    }else if (command == 'youtube'){
-        client.commands.get('youtube').execute(Message, args);
-    }else if (command == 'freerank'){
-        client.commands.get('freerank').execute(Message, args);
-    }else if (command == 'hi'){
-        client.commands.get('hi').execute(Message, args);
-    }else if (command == 'yt'){
-        client.commands.get('yt').execute(Message, args);
-    }else if (command == 'giveaway'){
-        client.commands.get('giveaway').execute(Message, args);
+    if (Message.content === '!ping') {
+        Message.channel.send('Pong!');
     }
 });
 
