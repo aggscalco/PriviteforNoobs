@@ -22,6 +22,10 @@ client.once('ready', () => {
 client.on('message', Message =>{
     if (Message.content === '!ping') {
         Message.channel.send('Pong!');
+    } else if (Message.content === 'Hi') {
+        Message.channel.send('Hello!')
+    } else if (Message.content === '!Help') {
+        Message.channel.send('-name,-yt or -youtube,-hi,-freerank,-giveaway')
     }
 });
 
