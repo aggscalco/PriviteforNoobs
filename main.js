@@ -2,11 +2,9 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const {prefix, 
-    bot_age, 
-    words_array, 
-    bot_info
-    ,} = require('/config.json');
+const prefix = '-';
+
+const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
@@ -18,26 +16,30 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () => {
-    console.log(prefix);
-    console.log(bot_age);
-    console.log(words_array[0]);
-    console.log(words_array[1]);
-    console.log(words_array[2]);
-    console.log(bot_info.name);
-    console.log(bot_info.version);
     console.log('PriviteforNoobs is now online!')
 });
 
-client.on('message', Message =>{
-    if (Message.content === `${prefix}ping`) {
-        Message.channel.send('Pong!');
-    } else if (Message.content === `${prefix}hi`) {
-        Message.channel.send('Hello!')
-    } else if (Message.content === `${prefix}help`) {
-        Message.channel.send('-name,-yt or -youtube,-hi,-freerank,-giveaway')
-    }  else if (Message.content === `${prefix}online`) {
-            Message.channel.send(`Total Members: ${message.guild.memberCount}`);
-    }
-});
+if(!Message.content.startsWith(prefix) || Message.author.bot) return;
+
+    const args = Message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if(command === 'ping'){
+        client.commands.get('ping').execute(Message, args);
+    } else if (command == 'name'){
+        client.commands.get('name').execute(Message, args);
+    }else if (command == 'help'){
+        client.commands.get('help').execute(Message, args);
+    }else if (command == 'youtube'){
+        client.commands.get('youtube').execute(Message, args);
+    }else if (command == 'freerank'){
+        client.commands.get('freerank').execute(Message, args);
+    }else if (command == 'hi'){
+        client.commands.get('hi').execute(Message, args);
+    }else if (command == 'yt'){
+        client.commands.get('yt').execute(Message, args);
+    }else if (command == 'giveaway'){
+        client.commands.get('giveaway').execute(Message, args);
+};
 
 client.login(process.env.TOKEN);
