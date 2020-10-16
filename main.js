@@ -41,8 +41,9 @@ client.on('message', Message =>{
         client.commands.get('yt').execute(Message, args);
     }else if (Message.content === `${prefix}online`) {
         Message.channel.send(`Total Members: ${Message.guild.memberCount}`);
-    }else if (command == 'help'){
-        client.commands.get('help').execute(Message, args);
+    } else if (command == 'name'){
+        client.commands.get('name').execute(Message, args);
+    }
 });
 
 client.login(process.env.TOKEN);
