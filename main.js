@@ -17,7 +17,18 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('TestBot_234 is online!')
+    
+
 });
+
+client.on('guildMemberAdd', member => {
+     
+    const channel = member.guild.channels.find(channel => channel.name === "join-leave-activity")
+    if(!channel) return;
+
+    channel.send('Welcome ${member} to our server please read the rules!')
+});
+    
 
 client.on('message', Message =>{
     if(!Message.content.startsWith(prefix) || Message.author.bot) return;
