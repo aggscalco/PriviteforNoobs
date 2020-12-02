@@ -23,7 +23,7 @@ client.once('ready', () => {
 
 client.on('guildMemberAdd', member => {
      
-    const channel = member.guild.channels.find(channel => channel.name === "704353497663012944")
+    const channel = member.guild.channels.find(channel => channel.name === "general")
     if(!channel) return;
 
     channel.send('Welcome ${member} to our server please read the rules!')
